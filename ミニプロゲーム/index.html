@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 
+Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Quiz Survivors</title>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.1/css/drawer.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.1/js/drawer.min.js"></script>
+        <script type="text/javascript" src="./jquery-ui/jquery-ui.js"></script>
+        <script type="text/javascript" src="./jquery-ui/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="./jquery-ui/jquery-ui.css">
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="./GameObject.js"></script>
+        <script type="text/javascript" src="./Collider.js"></script>
+        <script type="text/javascript" src="./QuizData.js"></script>
+        <script type="text/javascript" src="./Quiz.js"></script>
+        <script type="text/javascript" src="./PlayerLevel.js"></script>
+        <script type="text/javascript" src="./StageLevel.js"></script>
+        <script type="text/javascript" src="./GameLevelManager.js"></script>
+        <script type="text/javascript" src="./QuizManager.js"></script>
+        <script type="text/javascript" src="./GameManager.js"></script>
+        <script type="text/javascript" src="./Vector.js"></script>
+        <script type="text/javascript" src="./key.js"></script>
+        <script type="text/javascript" src="./mouse.js"></script>
+        <script type="text/javascript" src="./player.js"></script>
+        <script type="text/javascript" src="./enemy.js"></script>
+        <script type="text/javascript" src="./bullet.js"></script>
+        <script type="text/javascript" src="./weapon.js"></script>
+        <script type="text/javascript" src="./main.js"></script>
+    </head>
+  <body>
+    <div class="game-start-box">
+      <img src="./img/start.jpg">
+      <div class="game-start">
+        <h1>Quiz Survivors </h1>
+        <button>GameStart</button>
+      </div>
+    </div>
+
+    <div class="games hide">
+      <div class="time">
+        <h2>1:00</h2>
+      </div>
+      <div class="player-hp-bar-box">
+        <h1>HP: </h1>
+        <div class="player-hp-bar"></div>
+      </div>
+      <div class="game-play-area">
+        <div class="countdown-box">
+          <h1 class="countdown-text before">3</h1>
+          
+        </div>
+        <div id="player" class="stealker"></div>
+        <div class="enemies">
+          
+        </div>
+        <div class="bullets">
+
+        </div>
+        <div class="colliders">
+
+        </div>
+
+        <div class="modal hide">
+          <div class="modal-background"></div>
+          <div class="modal-contents">
+            <div class="game-clear-card hide">
+              <h1>ゲームクリア！！</h1>
+              <button class="retry-game">もう一度プレイする</button>
+            </div>
+            <div class="game-over-card hide">
+              <h1>ゲームオーバー</h1>
+              <button class="retry-game">再挑戦</button>
+            </div>
+            <div class="quiz-card hide">
+              <h1 class="quiz-card-title">問題</h1>
+              <img src="./img/maru.png" alt="" class="maru result_img"/>
+              <img src="./img/batsu.png" alt="" class="batsu result_img"/>
+              <h2 class="quiz-title"></h2>
+              <p class="quiz-description"></p>
+              <div class="quiz-image-box">
+                <img class="quiz-image" alt="">
+              </div>
+              <div class="quiz-chooses">
+
+              </div>
+              <div class="quiz-answerd-description">
+                <div class="quiz-answerd-description-title-box">
+                  解説
+                </div>
+                <p></p>
+              </div>
+              <div class="next-button-box">
+                <button class="next-button">次へ</button>
+              </div>
+            </div>
+            <div class="levelup-card hide">
+
+              <div class="level-up-description">
+                <div class="player-exp-box">
+                  <h1 id="player-lv-now">LV: 1</h1>
+                  <div class="player-exp-bar">
+                    <h1 class="level-up-text">Level Up !!!</h1>
+                  </div>
+                </div>
+
+                <ul>
+
+                </ul>
+              </div>
+              <div class="close-button-box">
+                <button class="close-button">閉じる</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>
