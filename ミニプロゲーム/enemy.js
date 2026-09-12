@@ -22,6 +22,8 @@ class Enemy extends GameObject{
         this.gameManager = GameManager.instance;
         this.gameManager.AllEnemies.push(this);
         this.death = false;
+        this.beforeTimeStamp = 0;
+
     }
     start(){
         
@@ -56,18 +58,22 @@ class Enemy extends GameObject{
     // fixedupdate(){
         
     // }
-    update(){
+    update(enemy, timestamp){
         if(this.gameManager.pauseGame || this.gameManager.gameClear){
             if(this.MoveAnim != null) this.MoveAnim.stop();
+            this.beforeTimeStamp = timestamp;
             return;
         } 
+        let deltaTime = (timestamp - this.beforeTimeStamp) / 1000;
+
         if(this.chaseNow){
             let direction = new Vector2((this.player.x + this.aroundX) - this.x, (this.player.y + this.aroundY) - this.y).normalized;
-            this.move(direction.x * this.speed*100, direction.y * this.speed*100);
+            this.move(direction.x * this.speed*100*deltaTime, direction.y * this.speed*100*deltaTime);
 
         }else{
             this.move(0,0);
         }
+    
         this.collider.x = this.x;
         this.collider.y = this.y;
         if(this.collider.detectCollision(this.player.collider) || this.death == true){
@@ -82,6 +88,8 @@ class Enemy extends GameObject{
                 this.Death(this);
             }
         }
+        this.beforeTimeStamp = timestamp;
+
     }
     chase(){
         this.aroundX = Math.floor(Math.random() * 50) - 50;
