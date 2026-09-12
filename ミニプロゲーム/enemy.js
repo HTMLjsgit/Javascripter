@@ -23,6 +23,7 @@ class Enemy extends GameObject{
         this.gameManager.AllEnemies.push(this);
         this.death = false;
         this.beforeTimeStamp = 0;
+        this.direction = new Vector2(0, 0);
 
     }
     start(){
@@ -65,13 +66,12 @@ class Enemy extends GameObject{
             return;
         } 
         let deltaTime = (timestamp - this.beforeTimeStamp) / 1000;
-
+        console.log(deltaTime);
         if(this.chaseNow){
-            let direction = new Vector2((this.player.x + this.aroundX) - this.x, (this.player.y + this.aroundY) - this.y).normalized;
-            this.move(direction.x * this.speed*100*deltaTime, direction.y * this.speed*100*deltaTime);
+            this.direction = new Vector2((this.player.x + this.aroundX) - this.x, (this.player.y + this.aroundY) - this.y).normalized;
 
         }else{
-            this.move(0,0);
+            this.direction = new Vector2(0,0);
         }
     
         this.collider.x = this.x;
@@ -90,6 +90,9 @@ class Enemy extends GameObject{
         }
         this.beforeTimeStamp = timestamp;
 
+    }
+    fixedupdate(){
+        this.move(this.direction.x * this.speed, this.direction.y * this.speed);
     }
     chase(){
         this.aroundX = Math.floor(Math.random() * 50) - 50;

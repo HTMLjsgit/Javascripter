@@ -7,7 +7,7 @@ $(function(){
     const gameLevelManager = new GameLevelManager();
     // setInterval(enemySpawn, 1000);
     const player = new Player(100,100, "#player");
-    // setInterval(fixedupdate, 1);
+    setInterval(fixedupdate, 20);
     
     init();
 
@@ -15,6 +15,11 @@ $(function(){
 
         GameObject.AllGameObjects.forEach(function(gameObject){
             gameObject.start(gameObject);
+        });    
+    }
+    function fixedupdate(){
+        GameObject.AllGameObjects.forEach(function(gameObject){
+            gameObject.fixedupdate(gameObject);
         });    
     }
     function update(timestamp){

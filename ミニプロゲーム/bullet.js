@@ -26,9 +26,11 @@ class Bullet extends GameObject{
     update(bullet){
         if(this.gameManager.pauseGame || this.gameManager.gameClear) return;
         if(Math.abs(this.x) > this.gameManager.gameArea.x || Math.abs(this.y) > this.gameManager.gameArea.y) this.Destroy();
-        this.move(this.direction.x * this.speed, this.direction.y * this.speed);
         this.collider.x = this.x;
         this.collider.y = this.y;
+    }
+    fixedupdate(){
+        this.move(this.direction.x * this.speed, this.direction.y * this.speed);
     }
     move(xVector, yVector){
         let moveX = xVector * 1;
