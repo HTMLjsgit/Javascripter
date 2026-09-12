@@ -63,7 +63,7 @@ class Enemy extends GameObject{
         } 
         if(this.chaseNow){
             let direction = new Vector2((this.player.x + this.aroundX) - this.x, (this.player.y + this.aroundY) - this.y).normalized;
-            this.move(direction.x * this.speed, direction.y * this.speed);
+            this.move(direction.x * this.speed*100, direction.y * this.speed*100);
 
         }else{
             this.move(0,0);
