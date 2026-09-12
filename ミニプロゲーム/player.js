@@ -74,7 +74,7 @@ class Player extends GameObject{
             }
             direction.y = forceY;
         }
-        this.move(direction.x * this.speed * deltaTime, -direction.y * this.speed * deltaTime);
+        this.move(direction.x *10 * this.speed * deltaTime, -direction.y * this.speed* 10 * deltaTime);
         this.gameManager.AllEnemies.forEach(enemy => {
             if(enemy.collider.detectCollision(this.collider) && !enemy.death){
                 this.enemyCollidered = true;
